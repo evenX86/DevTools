@@ -5,7 +5,7 @@ var currentTimeActive = 1;
 var unixTimer = 0;
 function unix2human() {
     var dateObj = new Date(document.unix2beijing.timestamp.value * 1000);
-    var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
+    var UnixTimeToDate = dateObj.getFullYear() + '/' + formatDate(dateObj.getMonth() + 1) + '/' + formatDate(dateObj.getDate()) + ' ' + formatDate(dateObj.getHours()) + ':' + formatDate(dateObj.getMinutes()) + ':' + formatDate(dateObj.getSeconds());
     document.unix2beijing.result.value = UnixTimeToDate;
 }
 function human2unix() {
@@ -22,7 +22,7 @@ function stripLeadingZeroes(input) {
 function currentTime() {
     var timeNow = new Date();
     document.getElementById("currentunixtime").innerHTML = Math.round(timeNow.getTime()/1000);
-    document.getElementById("currenttime").innerHTML = new Date().getFullYear()  + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate()+" " + new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds();
+    document.getElementById("currenttime").innerHTML = new Date().getFullYear()  + "-" + formatDate(new Date().getMonth()+1) + "-" + formatDate(new Date().getDate())+" " + formatDate(new Date().getHours())+":"+formatDate(new Date().getMinutes())+":"+formatDate(new Date().getSeconds());
     if (currentTimeActive) {
         unixTimer = setTimeout("currentTime()", 1000);
     }
@@ -44,4 +44,10 @@ function decodeText() {
     var rawText  = $("#rawText")[0].value;
     var decodeText = decodeURIComponent(rawText);
     $("#decodeText")[0].value = decodeText;
+}
+function formatDate(num) {
+    if (parseInt(num) < 10) {
+        num = '0'+num;
+    }
+    return num;
 }
