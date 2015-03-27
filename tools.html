@@ -23,21 +23,30 @@
         html, body {
             font-family: "Microsoft YaHei";
         }
-
+        .box1 .row{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 <div id="b_1" style="text-align:left;padding-left:20%;">
-    <h3 class="info"> <i class=" icon-star"></i> Unix时间戳(Unix timestamp)转换工具</h3>
+    <h3 class="info"><i class=" icon-star"></i> Unix时间戳(Unix timestamp)转换工具</h3>
 
     <div class="box1">
-        <div>
-            现在的Unix时间戳(Unix timestamp)是<span id="currentunixtime" class="text-danger"></span>
-            现在的时间是<span id="currenttime" class="text-danger"></span>
+
+        <div class="row">
+            现在的Unix时间戳(Unix timestamp)是<input id="currentunixtime"  class="input form-control" readonly="readonly">
+            现在的时间是<input id="currenttime"  class="input form-control" readonly="readonly">
+
         </div>
+        <div class="row">
+            今天凌晨的Unix时间戳(Unix timestamp)是<input type="text" name="zerotime" class="form-control" size="25" readonly="readonly"/>
+        </div>
+
+
         <script type="text/javascript">currentTime();</script>
-        <div class="info1">
-            <div class="utdiv"><h4>Unix时间戳(Unix timestamp) <i class=" icon-arrow-right"></i> 北京时间</h4></div>
+        <div class="row">
             <form name="unix2beijing" action="">
                 <label color="black">Unix时间戳(Unix timestamp)</label>
                 <input type="text" name="timestamp" id="firstTimestamp" class="input form-control" size="30"/>
@@ -45,7 +54,8 @@
                 <label color="black">北京时间</label>
                 <input type="text" name="result" size="30" class="input form-control" readonly="readonly"/>
             </form>
-            <div class="utdiv"><h4>北京时间 <i class=" icon-arrow-right"></i> Unix时间戳(Unix timestamp)</h4></div>
+            </div>
+        <div class="row">
             <form name="beijing2unix" action="">
                 <font color="black">北京时间</font>
                 <input type="text" class="input form-control" size="2" name="year" maxlength="10" style="width: 80px"/>
@@ -68,7 +78,7 @@
 </div>
 <hr>
 <div id="b_2" style="text-align:left;padding-left:20%;">
-    <h3>  <i class=" icon-star"></i>  编码解码</h3>
+    <h3><i class=" icon-star"></i> 编码解码</h3>
 
     <div class="box1">
         <label>请输入需要转换的内容:</label>
