@@ -63,8 +63,15 @@ function getTodayZeroTime(){
     var year = now.getFullYear();
     var month = now.getMonth() + 1;
     var day = now.getDate();
+    var hour = now.getHours();
     var strTime = year + "-" + month + "-" + day + ' 00:00:00';
+    var str0Time = year + "-" + month + "-" + day + ' ' + hour +':00:00';
+    var strYesTime = year + "-" + month + "-" + (day-1)  +' 00:00:00';
+
     $("input[name='zerotime']" ).val(js_strto_time(strTime));
+    $("input[name='zero0time']" ).val(js_strto_time(str0Time));
+    $("input[name='zeroYesTime']" ).val(js_strto_time(strYesTime));
+
 }
 $(document).ready(function(){
     getTodayZeroTime();
