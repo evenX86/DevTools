@@ -125,14 +125,21 @@
         </div>
     </div>
 </div>
+<div class="backstretch"
+     style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; z-index: -999999; position: fixed; width: 1903px; height: 100%;">
+    <img src="img/bg.jpg"
+         style="position: absolute; margin: 0px; padding: 0px; border: none; max-height: none; max-width: none; z-index: -999999; width: 1903px; ">
+</div>
 </body>
 <script>
     (function () {
         var input, output, gfm;
+
         function updateOutput() {
-            output.value = toMarkdown(input.value, { gfm: true });
+            output.value = toMarkdown(input.value, {gfm: true});
         }
-        document.addEventListener("DOMContentLoaded", function(event) {
+
+        document.addEventListener("DOMContentLoaded", function (event) {
             input = document.getElementById('input');
             output = document.getElementById('output');
             //gfm = document.getElementById('gfm');
